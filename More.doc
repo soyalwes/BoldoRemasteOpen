@@ -1,0 +1,300 @@
+|---------------|
+|Slash Structure|
+|---------------|
+const { SlashCommandBuilder } = require("@discordjs/builders");
+
+let cooldown = new Set();
+
+module.exports = {
+  data: new SlashCommandBuilder().setName("").setDescription(""),
+
+  async run(client, interaction) {
+    if (cooldown.has(interaction.member.id)) {
+      interaction.reply("Estas en cooldown");
+
+      return;
+    }
+
+    cooldown.add(interaction.member.id);
+    setTimeout(() => {
+      cooldown.delete(interaction.member.id);
+    }, 5000);
+  },
+};
+
+|---------------------|
+|ContextMenu Structure|
+|---------------------|
+
+const Discord = require("discord.js");
+const { ContextMenuCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
+
+let cooldown = new Set();
+
+module.exports = {
+  data: new ContextMenuCommandBuilder().setName("Avatar").setType(),
+
+  async run(client, interaction) {
+    if (cooldown.has(interaction.member.id)) {
+      interaction.reply(Estas en cooldown);
+      return;
+    }
+
+    cooldown.add(interaction.member.id);
+    setTimeout(() => {
+      cooldown.delete(interaction.member.id);
+    }, 5000);
+  },
+};
+
+
+
+        const datos = await toggle.findOne({ guildId: interaction.guild.id })
+        if(datos){
+        if (datos.Comando.includes(`${interaction.commandName}`))
+          return interaction.reply({
+            content: "Este comando esta desactivado",
+          });
+
+          await slashCmds.run(client, interaction);
+        }
+        if(!datos){
+          await slashCmds.run(client, interaction);
+        }
+
+|-------------|
+|----Perm-----|
+|-------------|
+
+    let permsBot = interaction.guild.me.permissions.has();
+    if (!permsBot)
+      return interaction.reply({
+        content: `\nPermiso: `,
+      });
+
+    let perms = interaction.member.permissions.has();
+    if (!perms)
+      return interaction.reply({
+        content: `\nPermiso: `,
+      });
+
+      
+        "DEAFEN_MEMBERS"
+        "MOVE_MEMBERS"
+        "USE_VAD"
+        "CHANGE_NICKNAME"
+        "MANAGE_NICKNAMES"
+        "MANAGE_ROLES"
+        "MANAGE_WEBHOOKS"
+        "MANAGE_EMOJIS_AND_STICKERS"
+        "USE_APPLICATION_COMMANDS"
+        "REQUEST_TO_SPEAK"
+        "MANAGE_THREADS"
+        "USE_PUBLIC_THREADS"
+        "CREATE_PUBLIC_THREADS"
+        "USE_PRIVATE_THREADS"
+        "CREATE_PRIVATE_THREADS"
+        "USE_EXTERNAL_STICKERS"
+        "SEND_MESSAGES_IN_THREADS"
+        "START_EMBEDDED_ACTIVITIES"     
+
+            const datos = await warnSchema.findOne({ guildId: interaction.guild.id, userId: user.id })
+
+    if(!datos)return interaction.reply({content:"No hay datos sobre este usuario"})
+
+    
+const lavalink = new Node({
+  connection: node,
+  sendGatewayPayload: (id, payload) => sendWithDiscordLib(id, payload)
+})
+
+lavalink.connect("931382786449879070")
+
+
+const { Node } = require("lavaclient")
+
+const node =  {host: "lava.link", port: 3000, password: "alewe200"};
+
+const lavalink = new Node({
+  connection: node,
+  sendGatewayPayload: (id, payload) => sendWithDiscordLib(id, payload)
+})
+
+lavalink.connect("931382786449879070")
+
+const { Manager } = require("erela.js")
+
+client.Manager = new Manager({
+  node,
+  send: (id, payload) => {
+    const guild = client.guilds.cache.get(id)
+
+    if(guild) guild.shard.send(payload)
+  }
+})
+
+for(const file of readdirSync("./src/Events/Erela")){
+  const fileErela = require(`./Events/Erela/${file}`)
+  client.Manager.on(fileErela.name, (...args) => fileErela.execute(client, ...args))
+}
+
+client.once("ready", async() => {
+  client.Manager.init(client.user.id);
+})
+
+client.on("raw", d => client.Manager.updateVoiceState(d));
+
+client.on("message", async message => {
+  // Some checks to see if it's a valid message
+  let prefix = "!"
+  if (!message.guild || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+
+  // Get the command name and arguments
+
+  // Check if it's the play command
+  if (command === "play") {
+    if (!message.member.voice.channel) return message.reply("you need to join a voice channel.");
+    if (!args.length) return message.reply("you need to give me a URL or a search term.");
+
+    const search = args.join(" ");
+    let res;
+
+    try {
+      // Search for tracks using a query or url, using a query searches youtube automatically and the track requester object
+      res = await client.Manager.search(search, message.author);
+      // Check the load type as this command is not that advanced for basics
+      if (res.loadType === "LOAD_FAILED") throw res.exception;
+      else if (res.loadType === "PLAYLIST_LOADED") throw { message: "Playlists are not supported with this command." };
+    } catch (err) {
+      console.log(err)
+    }
+
+    // Create the player 
+    const player = client.Manager.create({
+      guild: message.guild.id,
+      voiceChannel: message.member.voice.channel.id,
+      textChannel: message.channel.id,
+    });
+  
+    // Connect to the voice channel and add the track to the queue
+    player.connect();
+    player.queue.add(res.tracks[0]);
+  
+    // Checks if the client should play the track if it's the first one added
+    if (!player.playing && !player.paused && !player.queue.size) player.play()
+
+    return message.reply(`enqueuing ${res.tracks[0].title}.`);
+  }
+});
+
+
+        try{
+            if(datos.staffRolId !== null){
+              interaction.guild.channels.create(`ticket-${interaction.user.username}`, {
+                type: "GUILD_TEXT",
+                parent: `${datos.categoryId}`,
+                permissionsOverwrites: [
+                  {
+                    id: everyone.id,
+                    deny: [permissions.VC.Perm, permissions.SM.Perm]
+                  },
+                  {
+                    id: interaction.member.id,
+                    allow: [permissions.VC.Perm, permissions.SM.Perm]
+                  },
+                  {
+                    id: datos.staffRolId,
+                    allow: [permissions.VC.Perm, permissions.SM.Perm]
+                  }
+                ]
+              }).then((r) => {
+                const embedTicketOne = new MessageEmbed()
+                .setTitle("🎫|Ticket")
+                .setDescription(`Bienvenido ${interaction.member} a tu ticket\nDeja tu queja o duda espera a un staff\nPuedes usar el boton de abajo para borrar este ticket\nRazon: ${Reason}`)
+                .setColor(color.BotColor)
+      
+                const rowTicket = new MessageActionRow()
+                .addComponents(
+                  new MessageButton()
+                    .setCustomId("DeleteTicket")
+                    .setEmoji("❌")
+                    .setLabel("Borrar ticket")
+                    .setStyle("DANGER")
+                );
+                if(datos.allowNotification === true){
+                  r.send({embeds:[embedTicketOne], components:[rowTicket], content: `${everyone} <@&${datos.staffRolId}>`})
+                }if(datos.allowNotifiaction === false) {
+                  r.send({embeds:[embedTicketOne], components:[rowTicket]})
+                }
+              })
+            } else {
+              interaction.guild.channels.create(`ticket-${interaction.user.username}`, {
+                type: "GUILD_TEXT",
+                parent: `${datos.categoryId}`,
+                permissionsOverwrites: [
+                  {
+                    id: everyone.id,
+                    deny: [permissions.VC.Perm, permissions.SM.Perm]
+                  },
+                  {
+                    id: interaction.member.id,
+                    allow: [permissions.VC.Perm, permissions.SM.Perm]
+                  }
+                ]
+              }).then((r) => {
+                const embedTicketOne = new MessageEmbed()
+                .setTitle("🎫|Ticket")
+                .setDescription(`Bienvenido ${interaction.member} a tu ticket\nDeja tu queja o duda espera a un staff\nPuedes usar el boton de abajo para borrar este ticket\nRazon: ${Reason}`)
+                .setColor(color.BotColor)
+      
+                const rowTicket = new MessageActionRow()
+                .addComponents(
+                  new MessageButton()
+                    .setCustomId("DeleteTicket")
+                    .setEmoji("❌")
+                    .setLabel("Borrar ticket")
+                    .setStyle("DANGER")
+                );
+                if(datos.allowNotification === true){
+                  r.send({embeds:[embedTicketOne], components:[rowTicket], content: `${everyone} <@&${datos.staffRolId}>`})
+                }if(datos.allowNotifiaction === false) {
+                  r.send({embeds:[embedTicketOne], components:[rowTicket]})
+                }
+              })
+            }
+        }catch(e){
+          console.log(e)
+    
+          return modal.followUp({content: Message, ephemeral: true})
+        }
+
+                        let welcomeImage = "https://imgur.com/LrI7ouQ"
+
+                if(datos.linkImage !== null) welcomeImage = datos.linkImage
+
+                const canvas = Canvas.createCanvas(1018, 468)
+                const ctx = canvas.getContext("2d")
+
+                const background = Canvas.loadImage(`${welcomeImage}`);
+                ctx.drawImage(background, 0 , 0, canvas.width, canvas.height)
+
+                ctx.fillStyle = "#ffff";
+                ctx.font = "100px Segoe UI Black"
+
+                ctx.fillText("Bienvenido\nQue la pases bien", 460, 340)
+                ctx.fillText(`${member.user.username}`, 460, 340)
+
+                ctx.beginPath()
+                ctx.arc(247,238,175,0, Math.PI * 2, true)
+                ctx.clip()
+
+                const avatar = await canvas.loadImage(member.user.displayAvatarURL({ size: 2048, dynamic: true}))
+                ctx.drawImage(avatar, 72,63,350,350)
+
+                const attachments = new MessageAttachment(canvas.toBuffer(),  `Bienvenido-${member.user.username}`)
+        
+    

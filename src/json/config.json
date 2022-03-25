@@ -1,0 +1,7 @@
+{
+    "spotify": {
+        "enabled": false,
+        "clientSecret": "ClientSecret",
+        "clientId": "ClientId"
+    }
+}

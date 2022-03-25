@@ -1,0 +1,109 @@
+{
+        "CIV": {
+            "Perm": "CREATE_INSTANT_INVITE",
+            "MessagePerms": "Crear invitacion instantanea"
+        },
+        "KC": {
+            "Perm": "KICK_MEMBERS",
+            "MessagePerms": "Expulsar miembros"
+        },
+        "BM": {
+            "Perm": "BAN_MEMBERS",
+            "MessagePerms": "Banear miembros"
+        },
+        "AD": {
+            "Perm": "ADMINISTRATOR",
+            "MessagePerms": "Administrador"
+        },
+        "MC": {
+            "Perm": "MANAGE_CHANNELS",
+            "MessagePerms": "Adiministrar canales"
+        },
+        "MG": {
+            "Perm": "MANAGE_GUILD",
+            "MessagePerms": "Adiministrar servidor"
+        },
+        "AR": {
+            "Perm": "ADD_REACTIONS",
+            "MessagePerms": "Añadir reacciones"
+        },
+        "VAL": {
+            "Perm": "VIEW_AUDIT_LOG",
+            "MessagePerms": "Ver sistema de logs"
+        },
+        "PS": {
+            "Perm": "VIEW_AUDIT_LOG",
+            "MessagePerms": "Prioridad al hablar"
+        },
+        "ST": {
+            "Perm": "STREAM",
+            "MessagePerms": "Hacer stream"
+        },
+        "VC": {
+            "Perm": "VIEW_CHANNEL",
+            "MessagePerms": "Ver canal"
+        },
+        "SM": {
+            "Perm": "SEND_MESSAGES",
+            "MessagePerms": "Enviar mensajes"
+        },
+        "STM": {
+            "Perm": "SEND_TTS_MESSAGES",
+            "MessagePerms": "Enviar mensajes en forma tts"
+        },
+        "MM": {
+            "Perm": "MANAGE_MESSAGES",
+            "MessagePerms": "Administrar mensajes"
+        },
+        "MR": {
+            "Perm": "MANAGE_ROLES",
+            "MessagePerms": "Administrar roles"
+        },
+        "EL": {
+            "Perm": "EMBED_LINKS",
+            "MessagePerms": "Links dentro de embeds"
+        },
+        "AF": {
+            "Perm": "ATTACH_FILE",
+            "MessagePerms": "Enviar mensajes \\`attachment\\`"
+        },
+        "RMH": {
+            "Perm": "READ_MESSAGE_HISTORY",
+            "MessagePerms": "Leer historial de mensajes"
+        },
+        "ME": {
+            "Perm": "MENTION_EVERYONE",
+            "MessagePerms": "Mencionar todos los roles"
+        },
+        "UEE": {
+            "Perm": "USE_EXTERNAL_EMOJIS",
+            "MessagePerms": "Usar emojis externos"
+        },
+        "VGI": {
+            "Perm": "VIEW_GUILD_INSIGHTS",
+            "MessagePerms": "Ver las insignias del server"
+        },
+        "CNN": {
+            "Perm": "CONNECT",
+            "MessagePerms": "Conectar"
+        },
+        "SK": {
+            "Perm": "SPEAK",
+            "MessagePerms": "Hablar"
+        },
+        "MT": {
+           "Perm": "MUTE_MEMBERS",
+           "MessagePerms": "Mutear miembros"
+        },
+        "MB": {
+            "Perm": "MOVE_MEMBERS",
+            "MessagePerms": "Mover miembros"
+        },
+        "MMB": {
+            "Perm": "MODERATE_MEMBERS",
+            "MessagePerms": "Moderar miembros"
+        },
+
+    "MessageNoPermissions": "[❌] No tienes los permisos suficientes",
+    "MessageNoPermissionsBot": "[❌] No tengo los permisos suficientes"
+}

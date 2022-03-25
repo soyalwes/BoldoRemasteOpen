@@ -1,0 +1,6 @@
+{
+    "Message" : "[❌] Ocurrio un error, para reportarlo usa /report-error",
+    "Other": "[❌] Ocurrio un error",
+    "NoData": "[❌] No hay datos sobre este servidor",
+    "DataFound": "[❌] Ya hay datos sobre este servidor"
+}
